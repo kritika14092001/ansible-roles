@@ -1,0 +1,15 @@
+- name: "installing haproxy"
+  package: 
+        name: "haproxy"
+        state: present
+
+- name: "configuring haproxy"
+  template:
+          src: "haproxy.cfg"
+          dest: "/etc/haproxy/haproxy.cfg"
+
+- name: "starting haproxy service"
+  service:
+          name: "haproxy"
+          state: started
+
